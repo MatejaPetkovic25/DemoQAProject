@@ -11,9 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SidebarPage {
+
+    //Sidebar stranicu tretiramo kao zasebnu stranicu koja sadrzi pristup za sve ostale stranice na kojima ce se raditi testovi
     WebDriver driver;
     WebDriverWait wdwait;
     ExcelReader excelReader;
+    //---------------
+    //Elements
     WebElement textBoxItem;
     WebElement checkBoxItem;
     WebElement radioButtonItem;
@@ -23,6 +27,11 @@ public class SidebarPage {
     WebElement brokenLinksImagesItem;
     WebElement uploadAndDownloadItem;
     WebElement dynamicPropertiesItem;
+    //--------------------
+    //Forms
+    WebElement formsItem;
+    //--------------------
+
     String elementsMenu;
     String formsMenu;
     String alertsFrameWindowsMenu;
@@ -40,12 +49,22 @@ public class SidebarPage {
         widgetsMenu = excelReader.getStringData("ButtonNames", 4, 0);
         interactionsMenu = excelReader.getStringData("ButtonNames", 5, 0);
         bookStoreAppMenu = excelReader.getStringData("ButtonNames", 6, 0);
+
+        //Prosledjujem nazive glavnih opcija u meniju na slican nacin kako je to odradjeno na pocetnoj stranici
     }
+
+    //Zatim pravim listu elemenata gde ubacujem te glavne opcije koje sadrze podmenije u sidebar-u, a dole se nalaze
+    //metode koje klikcu na te opcije
 
     public List<WebElement> sidebarHeaderMenuButtons() {
         List<WebElement> list = new ArrayList<WebElement>(driver.findElements(By.className("header-text")));
         return list;
     }
+
+    //Na isti nacin mogao sam da napisem da se dobijaju i meni opcije koje se nalaze u pod-meniju. One takodje nemaju
+    //unikatne lokatore, ali posto sam prepoznao da u svakom podmeniju ipak imaju jedinstvene id-jeve i da dva podmenija
+    //ne mogu u isto vreme biti otvorena ipak sam odlucio da te elemente pronalazim preko id-eva. Ispod se nalaze geteri
+    //za svaku opciju iz pod-menija
 
     public WebElement getTextBoxItem() {
         return driver.findElement(By.id("item-0"));
@@ -82,6 +101,8 @@ public class SidebarPage {
     public WebElement getDynamicPropertiesItem() {
         return driver.findElement(By.id("item-8"));
     }
+
+
 
 
     //-------------------------------------------------------------------------------------
@@ -155,6 +176,7 @@ public class SidebarPage {
         }
     }
 
+    //Ovde pocinju metode za kliktanje na opcije iz svakog podmenija koje vode svaki na svoju specificnu stranicu
     public void clickOnTextBoxMenuItem() {
         getTextBoxItem().click();
     }
@@ -190,7 +212,6 @@ public class SidebarPage {
     public void clickOnDynamicPropertiesMenuItem() {
         getDynamicPropertiesItem().click();
     }
-
 
 
 

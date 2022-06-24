@@ -43,6 +43,10 @@ public class Homepage {
         return list;
     }
 
+    //Na homepage-u nalazi se vise dugmica koje vode na razlicite stranice, ali nijedna nema jedinstven lokator po kojoj
+    //se moze pretrazivati. Zbog toga je iznad napravljena lista tih elemenata kroz koju ce program ubuduce prolaziti
+    //kako bi izvlacio specificne dugmice koji ce u tom trenutku biti potrebni
+
     //---------------------------------------------------------------------------
 
     public void scrollToBottomOfThePage() {
@@ -51,6 +55,10 @@ public class Homepage {
         //Napravio sam metodu za skrolovanje do dna stranice, gde program moze da uhvati sve potrebne elemente koji se
         //na njoj nalaze. Stavio sam to u zasebnu metodu zato sto ce za svaki element morati da se primeni ista metoda
     }
+
+    //Ispod su metode za klik na dugmice koje vode ka stranicama ponudjenim na homepage-u. U njima su petlje koje
+    //prolaze kroz listu elemenata i traze onaj sa specificnim tekstom koji odgovara tekstu dugmeta koje treba da se klikne
+    //Kada na taj tekst naidje program treba da klikne na to dugme a zatim i da izadje iz petlje
 
     public void clickOnElementsPageButton() {
         scrollToBottomOfThePage();

@@ -11,7 +11,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class ElementsTest extends BaseTest {
-
+//Ovo je klasa za sve testove koji spadaju pod Elements deo sajta
     String URL;
     String fullName;
     String validEmail;
@@ -22,6 +22,8 @@ public class ElementsTest extends BaseTest {
     String age;
     String salary;
     String department;
+
+    //Ovde su inicijalizovani svi String podaci koji se koriste u testovima a koji se vade iz Excel file-a na racunaru
 
     @BeforeMethod
     public void pageSetUp() {
